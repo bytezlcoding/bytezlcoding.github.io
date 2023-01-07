@@ -6,18 +6,81 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://zlcoding.top">
-  <title>Category: golang版算法 | 技术博客</title>
+  <title>mongodb实战 | 技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="技术博客">
-<meta property="og:url" content="https://zlcoding.top/categories/%E7%AE%97%E6%B3%95/golang%E7%89%88%E7%AE%97%E6%B3%95/index.html">
+  <meta name="description" content="1.什么是Nosql红色    ￼ 蓝色   石板蓝    2.MongoDB概念入门关系型数据库和MongoDB数据库对比：   mysql中使用表连接的方式一对等方式如订单和商品对应就是一个类对于另一个类的引用,查询时需要订单表和商品表,需要连表查询 而MongoDB是使用文档嵌套的思维实现类似mysql中的多表连接查询   3.MongoDB安装与启动将安装包上传到linux指定目录并">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongodb实战">
+<meta property="og:url" content="https://zlcoding.top/2023/01/07/mongodb%E5%AE%9E%E6%88%98/index.html">
 <meta property="og:site_name" content="技术博客">
-<meta property="og:description" content="个人技术博客">
+<meta property="og:description" content="1.什么是Nosql红色    ￼ 蓝色   石板蓝    2.MongoDB概念入门关系型数据库和MongoDB数据库对比：   mysql中使用表连接的方式一对等方式如订单和商品对应就是一个类对于另一个类的引用,查询时需要订单表和商品表,需要连表查询 而MongoDB是使用文档嵌套的思维实现类似mysql中的多表连接查询   3.MongoDB安装与启动将安装包上传到linux指定目录并">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/58.%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8CMongodb%E5%AF%B9%E6%AF%94.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/1.%E5%AE%89%E8%A3%85%E7%9B%AE%E5%BD%95.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/2.%E6%89%A7%E8%A1%8C3%E4%B8%AAmongodb.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/3.%E5%A4%8D%E5%88%B6%E9%9B%86%E9%85%8D%E7%BD%AE1.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/7.%E5%A4%8D%E5%88%B6%E9%9B%86%E9%85%8D%E7%BD%AE5.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/5.%E9%85%8D%E7%BD%AE%E5%A4%8D%E5%88%B6%E9%9B%863.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/6.%E9%85%8D%E7%BD%AE%E5%A4%8D%E5%88%B6%E9%9B%864.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/6.%E9%85%8D%E7%BD%AE%E5%A4%8D%E5%88%B6%E9%9B%864.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/8.%E5%A4%8D%E5%88%B6%E9%9B%86%E5%86%991.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/9.%E5%A4%8D%E5%88%B6%E9%9B%86%E5%86%992.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/10.%E5%A4%8D%E5%88%B6%E9%9B%86%E5%86%993.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/11.%E5%A4%8D%E5%88%B6%E9%9B%86%E5%86%99%E7%AD%96%E7%95%A5%E6%8A%A5%E9%94%99.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/12.%E5%A4%8D%E5%88%B6%E9%9B%86%E6%B5%8B%E8%AF%95.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/13.%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/14.%E9%85%8D%E7%BD%AE%E7%94%9F%E6%95%88.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/15.%E8%A7%82%E5%AF%9F%E5%BB%B6%E8%BF%9F.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/16.timeout%E8%AE%BE%E7%BD%AE%E8%B6%85%E6%97%B6%E6%97%B6%E9%97%B4.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/17.%E8%8A%82%E7%82%B9%E8%AF%BB%E6%95%B0%E6%8D%AE.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/18.%E4%BB%8E%E8%8A%82%E7%82%B9%E5%90%8C%E6%AD%A5%E6%95%B0%E6%8D%AE%E6%88%90%E5%8A%9F.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/18.%E4%BB%8E%E8%8A%82%E7%82%B9%E5%90%8C%E6%AD%A5%E6%95%B0%E6%8D%AE%E6%88%90%E5%8A%9F.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/19.readConcern.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/20.%E4%B8%BB%E8%8A%82%E7%82%B9%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/21.%E4%BB%8E%E8%8A%82%E7%82%B9%E8%AF%BB%E5%8F%96%E5%88%B0%E6%95%B0%E6%8D%AE.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/22.%E4%BA%8B%E5%8A%A1.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/23.%E4%BA%8B%E5%8A%A1.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/24.%E5%88%86%E7%89%87%E9%9B%86%E7%BE%A4.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/27.%E5%9F%BA%E4%BA%8E%E8%8C%83%E5%9B%B4%E7%9A%84%E5%88%86%E5%B8%83%E6%96%B9%E5%BC%8F.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/26.%E5%9F%BA%E4%BA%8EHash%E7%9A%84%E5%88%86%E5%B8%83%E6%96%B9%E5%BC%8F.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/28.%E9%9B%86%E7%BE%A4%E5%88%86%E5%B8%83%E6%96%B9%E5%BC%8F3.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/25.%E5%88%86%E7%89%87%E9%9B%86%E7%BE%A42.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/49.3%E5%8F%B0%E8%99%9A%E6%8B%9F%E6%9C%BA.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/50.%E7%A1%AC%E4%BB%B6%E9%85%8D%E7%BD%AE.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/29.%E5%88%86%E7%89%87%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/49.3%E5%8F%B0%E8%99%9A%E6%8B%9F%E6%9C%BA.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/30.%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/31.%E6%9F%A5%E7%9C%8B%E9%85%8D%E7%BD%AE%E7%9A%84%E5%9F%9F%E5%90%8D.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/32.ping1.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/33.ping2.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/34.ping3.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/35.%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B91.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/36.%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B92.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/37.%E7%A1%AE%E4%BF%9Dmongodb%E5%90%8C%E7%89%88%E6%9C%AC.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/38.%E6%90%AD%E5%BB%BAshard1.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/39.%E6%90%AD%E5%BB%BAshard1.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/40.%E5%A4%8D%E5%88%B6%E9%9B%86primary.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/41.%E5%A4%8D%E5%88%B6%E9%9B%86s1.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/42.%E5%A4%8D%E5%88%B6%E9%9B%86s2.png">
+<meta property="og:image" content="https://zlcoding.top/Users/zl/Desktop/mongodb/mongodb-png/43.config%E5%AE%9E%E4%BE%8B%E8%BF%90%E8%A1%8C%E6%88%90%E5%8A%9F.png">
+<meta property="og:image" content="https://zlcoding.top/Users/zl/Desktop/mongodb/mongodb-png/44.config%E5%A4%8D%E5%88%B6%E9%9B%86primary.png">
+<meta property="og:image" content="https://zlcoding.top/Users/zl/Desktop/mongodb/mongodb-png/45.config%E5%A4%8D%E5%88%B6%E9%9B%86s1.png">
+<meta property="og:image" content="https://zlcoding.top/Users/zl/Desktop/mongodb/mongodb-png/46.config%E5%A4%8D%E5%88%B6%E9%9B%86s2.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/47.%E8%BF%9E%E6%8E%A5mongos.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/48.shard1%E5%8A%A0%E5%85%A5%E5%88%B0%E9%9B%86%E7%BE%A4.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/51.%E5%88%86%E7%89%87%E9%9B%86%E7%BE%A4%E7%8A%B6%E6%80%81.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/52.%E5%88%86%E7%89%87%E9%9B%86%E7%BE%A4%E7%8A%B6%E6%80%81.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/53.%E5%86%99%E5%85%A5%E6%95%B0%E6%8D%AE.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/54.%E5%88%86%E7%89%87%E5%8A%A8%E6%80%81%E6%89%A9%E5%AE%B9.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/55.%E6%95%B0%E6%8D%AE%E5%8F%98%E5%8C%96.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/56.%E6%95%B0%E6%8D%AE%E5%8F%98%E5%8C%96.png">
+<meta property="og:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/57.%E6%95%B0%E6%8D%AE%E5%8F%98%E5%8C%96.png">
+<meta property="article:published_time" content="2023-01-07T15:01:00.000Z">
+<meta property="article:modified_time" content="2023-01-07T15:03:59.374Z">
 <meta property="article:author" content="自律">
-<meta property="article:tag" content="算法&#x2F;计算机基础&#x2F;云原生&#x2F;大数据&#x2F;人工智能&#x2F;golang&#x2F;java&#x2F;python&#x2F;c++&#x2F;脚本语言">
+<meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/58.%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8CMongodb%E5%AF%B9%E6%AF%94.png">
   
     <link rel="alternative" href="/atom.xml" title="技术博客" type="application/atom+xml">
   
@@ -151,75 +214,946 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-mongodb实战" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/01/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2023-01-07T10:47:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-07</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">我的第一篇文章</a>
+    <h1 class="article-title" itemprop="name">
+      mongodb实战
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2023/01/07/mongodb%E5%AE%9E%E6%88%98/" class="archive-article-date">
+  	<time datetime="2023-01-07T15:01:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <span id="more"></span>
+<!-- toc -->
+
+<h4 id="1-什么是Nosql"><a href="#1-什么是Nosql" class="headerlink" title="1.什么是Nosql"></a>1.什么是Nosql</h4><p><span style="color:red">红色</span></p>
+<p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<p>￼</p>
+<p><span style="color:blue">蓝色</span></p>
+<p><span style="color:blue"></span></p>
+<p><span style="color:blue"></span></p>
+<p><span style="color:#007FFF">石板蓝</span></p>
+<p><span style="color:#007FFF"></span></p>
+<p><span style="color:#007FFF"></span></p>
+<hr>
+<h4 id="2-MongoDB概念入门"><a href="#2-MongoDB概念入门" class="headerlink" title="2.MongoDB概念入门"></a>2.MongoDB概念入门</h4><p><span style="color:blue">关系型数据库和MongoDB数据库对比：</span></p>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/58.%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8CMongodb%E5%AF%B9%E6%AF%94.png" alt="58.关系型数据库和Mongodb对比"></p>
+<blockquote>
+<p>mysql中使用表连接的方式一对等方式如订单和商品对应就是一个类对于另一个类的引用,查询时需要订单表和商品表,需要连表查询</p>
+<p><span style="color:#007FFF">而MongoDB是使用文档嵌套的思维实现类似mysql中的多表连接查询</span></p>
+</blockquote>
+<hr>
+<h4 id="3-MongoDB安装与启动"><a href="#3-MongoDB安装与启动" class="headerlink" title="3.MongoDB安装与启动"></a>3.MongoDB安装与启动</h4><p>将安装包上传到linux指定目录并解压重命名为mongodb</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="type">root</span>@<span class="type">localhost</span> <span class="type">local</span>]<span class="comment"># pwd</span></span><br><span class="line">/usr/local</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/1.%E5%AE%89%E8%A3%85%E7%9B%AE%E5%BD%95.png" alt="1.安装目录"></p>
+<p>同时创建一个文件夹mongoldb-home,在该文件中新建data和logs文件夹,分别存放数据和日志文件</p>
+<blockquote>
+<p>配置环境变量：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;vim /etc/profile</span><br><span class="line">&gt;export MONGODB_HOME=/home/lijin/mongodb</span><br><span class="line">&gt;export PATH=<span class="variable">$PATH:</span><span class="variable">$MONGODB_HOME</span>/bin</span><br><span class="line">&gt;source /etc/profile</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>进入mongodb目录下的bin目录下执行以下命令启动mongodb</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod <span class="literal">--dbpath</span> /usr/local/mongodb<span class="literal">-home</span>/<span class="keyword">data</span> <span class="literal">--logpath</span>  /usr/local/mongodb<span class="literal">-home</span>/logs/mongod.log <span class="literal">--fork</span></span><br></pre></td></tr></table></figure>
+
+<p>客户端连接：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="type">root</span>@<span class="type">localhost</span> <span class="type">mongodb</span>-<span class="type">home</span>]<span class="comment"># mongo</span></span><br></pre></td></tr></table></figure>
+
+<p>MongoDB默认会创建admin、config、local、test数据库。test库是一个默认的数据库,除了test库外admin、config、local库为系统库。admin库主要存储MongoDB的用户、角色等信息,config库主要存储分片集群基础信息,local库主要存储副本集的元数据</p>
+<hr>
+<h4 id="4-常用命令之增删改查"><a href="#4-常用命令之增删改查" class="headerlink" title="4.常用命令之增删改查"></a>4.常用命令之增删改查</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h4 id="5-原生客户端复杂操作"><a href="#5-原生客户端复杂操作" class="headerlink" title="5.原生客户端复杂操作"></a>5.原生客户端复杂操作</h4><hr>
+<h4 id="6-索引概念B树"><a href="#6-索引概念B树" class="headerlink" title="6.索引概念B树"></a>6.索引概念B树</h4><hr>
+<p>####7.索引类型以及索引管理</p>
+<hr>
+<h4 id="8-客户端实战"><a href="#8-客户端实战" class="headerlink" title="8.客户端实战"></a>8.客户端实战</h4><hr>
+<h4 id="9-客户端实战之pojo"><a href="#9-客户端实战之pojo" class="headerlink" title="9.客户端实战之pojo"></a>9.客户端实战之pojo</h4><hr>
+<h4 id="10-MongoDB高级"><a href="#10-MongoDB高级" class="headerlink" title="10.MongoDB高级"></a>10.MongoDB高级</h4><h5 id="1-复制集及原理"><a href="#1-复制集及原理" class="headerlink" title="1.复制集及原理"></a>1.复制集及原理</h5><hr>
+<h5 id="2-复制集搭建实战"><a href="#2-复制集搭建实战" class="headerlink" title="2.复制集搭建实战"></a>2.复制集搭建实战</h5><p>通过在一台机器上运行3个实例来搭建一个最简单的复制集：</p>
+<p><code>1</code> 创建数据目录</p>
+<p>MongoDB 启动时将使用一个数据目录存放所有数据文件,为3个复制集节点创建各自的数据目录</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="type">root</span>@<span class="type">localhost</span> ~]<span class="comment"># mkdir -p /data/db&#123;1,2,3&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>2</code> 准备配置文件</p>
+<p>复制集的每个mongod进程应该位于不同的服务器,现在在一台机器上运行3个进程,因此要为它们各自配置不同的端口,示例中将使用==28017/28018/28019==</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[<span class="type">root</span>@<span class="type">localhost</span> <span class="type">data</span>]<span class="comment"># cd db1</span></span><br><span class="line">[<span class="type">root</span>@<span class="type">localhost</span> <span class="type">db1</span>]<span class="comment"># vim mongod.conf</span></span><br><span class="line"><span class="literal">----------------</span>配置文件内容如下<span class="literal">-----------------------</span></span><br><span class="line">systemLog:</span><br><span class="line">  destination: file</span><br><span class="line">  path: /<span class="keyword">data</span>/db1/mongod.log <span class="comment"># log path</span></span><br><span class="line">  logAppend: true</span><br><span class="line">storage:</span><br><span class="line">  dbPath: /<span class="keyword">data</span>/db1 <span class="comment"># data directory</span></span><br><span class="line">net:</span><br><span class="line">  bindIp: <span class="number">0.0</span>.<span class="number">0.0</span></span><br><span class="line">  port: <span class="number">28017</span> <span class="comment"># port</span></span><br><span class="line">replication:</span><br><span class="line">  replSetName: rs0 <span class="comment">#复制集名称</span></span><br><span class="line">processManagement:</span><br><span class="line">  fork: true <span class="comment">#后台进程形式执行</span></span><br></pre></td></tr></table></figure>
+
+<p>其他两个mongodb同理,只需把对应的目录名和端口号改了即可</p>
+<p><code>3</code> 启动三个mongodb</p>
+<p>进入mongodb的bin目录下执行以下代码即可</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="type">root</span>@<span class="type">localhost</span> <span class="type">db3</span>]<span class="comment"># cd /usr/local/mongodb/bin</span></span><br><span class="line">[<span class="type">root</span>@<span class="type">localhost</span> <span class="type">bin</span>]<span class="comment"># mongod -f /data/db1/mongod.conf</span></span><br><span class="line">[<span class="type">root</span>@<span class="type">localhost</span> <span class="type">bin</span>]<span class="comment"># mongod -f /data/db2/mongod.conf</span></span><br><span class="line">[<span class="type">root</span>@<span class="type">localhost</span> <span class="type">bin</span>]<span class="comment"># mongod -f /data/db3/mongod.conf</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/2.%E6%89%A7%E8%A1%8C3%E4%B8%AAmongodb.png" alt="2.执行3个mongodb"></p>
+<p><code>4</code> 配置复制集</p>
+<p>登录第一个mongoldb</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="type">root</span>@<span class="type">localhost</span> <span class="type">db1</span>]<span class="comment"># mongo --port 28017</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#初始化</span></span><br><span class="line">&gt; rs.initiate()</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/3.%E5%A4%8D%E5%88%B6%E9%9B%86%E9%85%8D%E7%BD%AE1.png" alt="3.复制集配置1"></p>
+<p>查看复制集状态</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rs0:PRIMARY&gt; rs.status()</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/7.%E5%A4%8D%E5%88%B6%E9%9B%86%E9%85%8D%E7%BD%AE5.png" alt="7.复制集配置5"></p>
+<p>修改主机名为centosvm,并重启系统(reboot)</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hostname</span><br></pre></td></tr></table></figure>
+
+<p>添加另外两个复制集节点(从节点)</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; rs.add(<span class="string">&quot;centosvm:28018&quot;</span>)</span><br><span class="line">&gt; rs.add(<span class="string">&quot;centosvm:28019&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>查看复制集状态添加成功</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rs0:PRIMARY&gt; rs.status()</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/5.%E9%85%8D%E7%BD%AE%E5%A4%8D%E5%88%B6%E9%9B%863.png" alt="5.配置复制集3"></p>
+<p><code>5</code> 验证</p>
+<p>MongoDB 主节点进行写入</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rs0:PRIMARY&gt; db.test.insert(&#123;a:<span class="number">1</span>&#125;);</span><br><span class="line">WriteResult(&#123; <span class="string">&quot;nInserted&quot;</span> : <span class="number">1</span> &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>MongoDB 从节点进行读(启动一个窗口登入从节点1)</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="type">root</span>@<span class="type">centosvm</span> ~]<span class="comment"># mongo localhost:28018</span></span><br><span class="line">rs0:SECONDARY&gt; rs.slaveOk()</span><br><span class="line">rs0:SECONDARY&gt; db.test.find()</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/6.%E9%85%8D%E7%BD%AE%E5%A4%8D%E5%88%B6%E9%9B%864.png" alt="6.配置复制集4"></p>
+<p>MongoDB 从节点进行读(启动一个窗口登入从节点2)</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="type">root</span>@<span class="type">centosvm</span> ~]<span class="comment"># mongo localhost:28019</span></span><br><span class="line">rs0:SECONDARY&gt; rs.slaveOk()</span><br><span class="line">rs0:SECONDARY&gt; db.test.find()</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/6.%E9%85%8D%E7%BD%AE%E5%A4%8D%E5%88%B6%E9%9B%864.png" alt="6.配置复制集4"></p>
+<hr>
+<h5 id="3-复制集的写策略"><a href="#3-复制集的写策略" class="headerlink" title="3.复制集的写策略"></a>3.复制集的写策略</h5><p>mongodb有非常详尽的事务的安全和数据的一致性</p>
+<blockquote>
+<p><span style="color:red">什么是 writeConcern </span></p>
+<p>writeConcern 决定一个写操作落到多少个节点上才算成功,writeConcern的取值包括：<br>• 0：发起写操作,不关心是否成功(极有可能丢数据)<br>• 1~n(n为集群最大数据节点数)：写操作需要被复制到指定节点数才算成功<br>• majority：写操作需要被复制到大多数节点上才算成功。<br>发起写操作的程序将阻塞到写操作到达指定的节点数为止</p>
+<hr>
+<p><span style="color:red">w:”1</span> 默认行为,默认的writeConcern,数据写入到Primary就向客户端发送确认</p>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/8.%E5%A4%8D%E5%88%B6%E9%9B%86%E5%86%991.png" alt="8.复制集写1"></p>
+<p><span style="color:red"><strong>w: “majority”(推荐)</strong></span> 大多数节点确认模式</p>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/9.%E5%A4%8D%E5%88%B6%E9%9B%86%E5%86%992.png" alt="9.复制集写2"></p>
+<p><span style="color:red"><strong>w: “all”</strong></span> 全部节点确认模式</p>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/10.%E5%A4%8D%E5%88%B6%E9%9B%86%E5%86%993.png" alt="10.复制集写3"></p>
+<hr>
+<p><span style="color:red">j:true</span></p>
+<p><img src=""></p>
+<hr>
+<p><span style="color:red">writeConcern的意义：</span></p>
+<p>对于5个节点的复制集来说,写操作落到多少个节点上才算是安全的？至少3个节点或者配置majority</p>
+</blockquote>
+<hr>
+<h5 id="4-复制集的写策略实战"><a href="#4-复制集的写策略实战" class="headerlink" title="4.复制集的写策略实战"></a>4.复制集的写策略实战</h5><p><span style="color:red">在复制集测试writeConcern参数：</span></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rs0:PRIMARY&gt; db.test.drop()</span><br><span class="line">true</span><br><span class="line"><span class="comment">#配置集写策略设置为majority</span></span><br><span class="line">rs0:PRIMARY&gt; db.test.insert( &#123;count: <span class="number">1</span>&#125;, &#123;writeConcern: &#123;w: <span class="string">&quot;majority&quot;</span>&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#配置集写策略设置为写入3个节点</span></span><br><span class="line">rs0:PRIMARY&gt; db.test.insert( &#123;count: <span class="number">1</span>&#125;, &#123;writeConcern: &#123;w: <span class="number">3</span> &#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#配置集写策略设置为写入4个节点(一共只有3个节点,会报错)</span></span><br><span class="line">rs0:PRIMARY&gt; db.test.insert( &#123;count: <span class="number">1</span>&#125;, &#123;writeConcern: &#123;w: <span class="number">4</span> &#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/11.%E5%A4%8D%E5%88%B6%E9%9B%86%E5%86%99%E7%AD%96%E7%95%A5%E6%8A%A5%E9%94%99.png" alt="11.复制集写策略报错"></p>
+<p>测试是否成功</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rs0:PRIMARY&gt; db.test.find()</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/12.%E5%A4%8D%E5%88%B6%E9%9B%86%E6%B5%8B%E8%AF%95.png" alt="12.复制集测试"></p>
+<hr>
+<p>配置延迟节点,模拟网络延迟(复制延迟）</p>
+<blockquote>
+<p>查看配置信息</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;rs0:PRIMARY&gt; conf=rs.conf()</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/13.%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF.png" alt="13.配置信息"></p>
+<p>更改上面的参数</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="comment">#设置第二个从点的对应延迟参数值为5不是及时同步主节点的数据</span></span><br><span class="line">&gt;rs0:PRIMARY&gt; conf.members[<span class="number">2</span>].secondaryDelaySecs = <span class="number">5</span></span><br><span class="line">&gt;<span class="number">5</span></span><br><span class="line">&gt;<span class="comment">#将该从节点设置为不可选举</span></span><br><span class="line">&gt;rs0:PRIMARY&gt; conf.members[<span class="number">2</span>].priority = <span class="number">0</span></span><br><span class="line">&gt;<span class="number">0</span></span><br><span class="line">&gt;<span class="comment">#使配置生效</span></span><br><span class="line">&gt;rs0:PRIMARY&gt; rs.reconfig(conf)</span><br></pre></td></tr></table></figure>
+
+<p>查看是否生效</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;rs0:PRIMARY&gt; rs.conf()</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/14.%E9%85%8D%E7%BD%AE%E7%94%9F%E6%95%88.png" alt="14.配置生效"></p>
+</blockquote>
+<hr>
+<p>观察复制延迟下的写入,以及timeout参数</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rs0:PRIMARY&gt; db.test.insert( &#123;count: <span class="number">1</span>&#125;, &#123;writeConcern: &#123;w: <span class="number">3</span>&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/15.%E8%A7%82%E5%AF%9F%E5%BB%B6%E8%BF%9F.png" alt="15.观察延迟"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rs0:PRIMARY&gt; db.test.insert( &#123;count: <span class="number">1</span>&#125;, &#123;writeConcern: &#123;w: <span class="number">3</span>, wtimeout:<span class="number">3000</span> &#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/16.timeout%E8%AE%BE%E7%BD%AE%E8%B6%85%E6%97%B6%E6%97%B6%E9%97%B4.png" alt="16.timeout设置超时时间"></p>
+<hr>
+<blockquote>
+<p><span style="color:red">⚠️注意事项</span></p>
+<ol>
+<li>虽然多于半数的 writeConcern 都是安全的,但通常只会设置 majority,因为这是等待写入延迟时间最短的选择(延迟时间就是上面配的那个,使用majority会选择最小的即0,不使用majority则会选择配置的延迟时间最长的)</li>
+<li>不要设置 writeConcern 等于总节点数,因为一旦有一个节点故障,所有写操作都将失败</li>
+<li>writeConcern 虽然会增加写操作延迟时间,但并不会显著增加集群压力,因此无论是否等待,写操作最终都会复制到所有节点上,设置 writeConcern 只是让写操作等待复制后再返回而已</li>
+<li>应对重要数据应用 {w: “majority”},普通数据可以应用 {w: 1} 以确保最佳性能</li>
+</ol>
+</blockquote>
+<hr>
+<h5 id="5-复制集的读策略"><a href="#5-复制集的读策略" class="headerlink" title="5.复制集的读策略"></a>5.复制集的读策略</h5><p><span style="color:red">从哪里读数据：</span></p>
+<p>在复制集中,读取数据需要关注从哪里读的问题,因为mongodb是分布式数据库,分为主从节点,就需要考虑从哪个节点读取数据,这个问题是由readPreference(读取偏好)来解决</p>
+<blockquote>
+<p><strong>什么是readPreference：</strong></p>
+<p>readPreference 决定使用哪一个节点来满足正在发起的读请求,可选值包括：</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">primary</td>
+<td align="center">只选择主节点(默认值)</td>
+</tr>
+<tr>
+<td align="center">primaryPreferred</td>
+<td align="center">优先选择主节点,如果不可用则选择从节点</td>
+</tr>
+<tr>
+<td align="center">secondary</td>
+<td align="center">只选择从节点</td>
+</tr>
+<tr>
+<td align="center">secondaryPreferred</td>
+<td align="center">优先选择从节点,如果从节点不可用则选择主节点</td>
+</tr>
+<tr>
+<td align="center">nearest</td>
+<td align="center">选择最近的节点(ping的返回时间最短的节点)</td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>适用场景：</strong></p>
+<ol>
+<li><strong>primary/primaryPreferred</strong></li>
+</ol>
+<p>  用户下订单后马上将用户转到订单详情页(查询时效性要求),因为此时数据已经写入到主节点,可能并未写入到从节点,从节点可能读不到数据,所以对实时性要求较高的话优先使用主节点/主节点优先</p>
+<ol start="2">
+<li><strong>secondary/secondaryPreferred</strong></li>
+</ol>
+<p>  用户查询自己下过的订单(查询历史订单对时效性通常没有太高要求),历史订单记录此时从节点中一定有记录,所以不用去主节点找,如果去主节点找,主节点同时又要写入新的数据会影响主节点的性能,因此对失效要求不高的情况优先使用从节点读数据即可</p>
+<ol start="3">
+<li><strong>secondary</strong></li>
+</ol>
+<p>  生成报表(统计今日卖的商品数等),报表对时效性要求不高,但资源需求大,可以在从节点单独处理,避免对线上用户(下单,主节点写入数据)造成影响</p>
+<ol start="4">
+<li><strong>nearest</strong></li>
+</ol>
+<p>  将用户上传的图片分发到全世界,让各地用户能够就近读取(每个地区的应用选择最近的节点读取数据)</p>
+<ol start="5">
+<li><strong>Tag</strong></li>
+</ol>
+<p>  readPreference 只能控制使用一类节点(要么主/要么从/要么最近的节点),特殊需求这个业务读取从,那个业务读取主,Tag 则可以将节点选择控制到一个或几个节点,考虑以下场景：</p>
+<p>  • 一个 5 个节点的复制集；<br>  • 3 个节点硬件较好,专用于服务线上客户；<br>  • 2 个节点硬件较差,专用于生成报表；<br>  可以使用 Tag 来达到这样的控制目的：<br>  • 为 3 个较好的节点打上 {purpose: “online”}；<br>  • 为 2 个较差的节点打上 {purpose: “analyse”}；<br>  • 在线应用读取时指定 online,报表读取时指定analyse</p>
+<p>  <img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/17.%E8%8A%82%E7%82%B9%E8%AF%BB%E6%95%B0%E6%8D%AE.png" alt="17.节点读数据"></p>
+<hr>
+<p><strong>readPreference配置：</strong></p>
+<ol>
+<li>通过 MongoDB 的连接串参数</li>
+</ol>
+  <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?mongodb://host1:<span class="number">27107</span>,host2:<span class="number">27107</span>,host3:<span class="number">27017</span>/?replicaSet=rs&amp;readPreference=secondary</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>通过 MongoDB 驱动程序 API</li>
+</ol>
+  <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MongoCollection.withReadPreference(ReadPreference readPref)</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>Mongo Shell</li>
+</ol>
+  <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.collection.find(&#123;&#125;).readPref( <span class="string">&quot;secondary&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>readPreference实战：</strong></p>
+<p>主节点写入 {x:1},观察该条数据在各个节点均可见</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;rs0:PRIMARY&gt; db.test.drop()</span><br><span class="line">&gt;rs0:PRIMARY&gt; db.test.insert(&#123;x:<span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>从节点查看数据是否同步</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="comment">#从节点1</span></span><br><span class="line">&gt;rs0:SECONDARY&gt; rs.slaveOk()</span><br><span class="line">&gt;rs0:SECONDARY&gt; db.test.find()</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/18.%E4%BB%8E%E8%8A%82%E7%82%B9%E5%90%8C%E6%AD%A5%E6%95%B0%E6%8D%AE%E6%88%90%E5%8A%9F.png" alt="18.从节点同步数据成功"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="comment">#从节点2</span></span><br><span class="line">&gt;rs0:SECONDARY&gt; rs.slaveOk()</span><br><span class="line">&gt;rs0:SECONDARY&gt; db.test.find()</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/18.%E4%BB%8E%E8%8A%82%E7%82%B9%E5%90%8C%E6%AD%A5%E6%95%B0%E6%8D%AE%E6%88%90%E5%8A%9F.png" alt="18.从节点同步数据成功"></p>
+<p>在两个从节点分别执行 db.fsyncLock() 来锁定写入(不能从主节点同步写入的数据）</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;rs0:SECONDARY&gt; db.fsyncLock()</span><br></pre></td></tr></table></figure>
+
+<p>主节点上写入数据并查看</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;rs0:PRIMARY&gt; db.test.insert(&#123;x:<span class="number">2</span>&#125;,&#123;writeConcern:&#123;w:<span class="number">1</span>&#125;&#125;)</span><br><span class="line">&gt;rs0:PRIMARY&gt; db.test.find()</span><br><span class="line">&gt;&#123; <span class="string">&quot;_id&quot;</span> : ObjectId(<span class="string">&quot;639f25544fc80967af9ac925&quot;</span>), <span class="string">&quot;x&quot;</span> : <span class="number">1</span> &#125;</span><br><span class="line">&gt;&#123; <span class="string">&quot;_id&quot;</span> : ObjectId(<span class="string">&quot;639f26644fc80967af9ac926&quot;</span>), <span class="string">&quot;x&quot;</span> : <span class="number">2</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>从节点查看数据(两个从节点都执行发现没有第二条数据)</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;rs0:SECONDARY&gt; db.test.find()</span><br><span class="line">&gt;&#123; <span class="string">&quot;_id&quot;</span> : ObjectId(<span class="string">&quot;639f25544fc80967af9ac925&quot;</span>), <span class="string">&quot;x&quot;</span> : <span class="number">1</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>解除从节点锁定 db.fsyncUnlock(),两个从节点都执行</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;rs0:SECONDARY&gt; db.fsyncUnlock()</span><br></pre></td></tr></table></figure>
+
+<p>从节点上查看数据是否同步(两个从节点都执行)</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;rs0:SECONDARY&gt; db.test.find().readPref(<span class="string">&quot;secondary&quot;</span>)</span><br><span class="line"></span><br><span class="line">&gt;&#123; <span class="string">&quot;_id&quot;</span> : ObjectId(<span class="string">&quot;639f25544fc80967af9ac925&quot;</span>), <span class="string">&quot;x&quot;</span> : <span class="number">1</span> &#125;</span><br><span class="line">&gt;&#123; <span class="string">&quot;_id&quot;</span> : ObjectId(<span class="string">&quot;639f26644fc80967af9ac926&quot;</span>), <span class="string">&quot;x&quot;</span> : <span class="number">2</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>readPreference注意事项：</strong></p>
+<p>指定 readPreference 时也应注意高可用问题,例如将 readPreference 指定 primary,则发生故障转移不存在 primary 期间将没有节点可读,如果业务允许,则应选择 primaryPreferred或者secondaryPreferred</p>
+</blockquote>
+<hr>
+<p><span style="color:red">怎样的数据可以读：</span></p>
+<blockquote>
+<p><strong>什么是readConcern：</strong></p>
+<p>readConcern 决定这个节点上的数据哪些是可读的,类似于关系数据库的隔离级别,可选值包括：</p>
+<table>
+<thead>
+<tr>
+<th align="center">可选值</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">available</td>
+<td align="center">读取所有可用的数据(不能解决事务隔离)</td>
+</tr>
+<tr>
+<td align="center">local</td>
+<td align="center">读取所有可用且属于当前分片的数据(不能解决事务隔离)</td>
+</tr>
+<tr>
+<td align="center">majority</td>
+<td align="center">读取在大多数节点上提交完成的数据</td>
+</tr>
+<tr>
+<td align="center">linearizable</td>
+<td align="center">可线性化读取文档</td>
+</tr>
+<tr>
+<td align="center">snapshot</td>
+<td align="center">读取最近快照中的数据</td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>majority：</strong></p>
+<p>只读取<strong>大多</strong>数据节点上都提交了的数据(针对复制集)</p>
+<p>以下场景中将一个数据写入一主两从的复制集中</p>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/19.readConcern.png" alt="19.readConcern"></p>
+<p>节点上维护多个 x 版本,MVCC机制(参考Mysql中mvcc)实现了majority</p>
+<p>MongoDB 通过维护多个快照来链接不同的版本：<br>• 每个被大多数节点确认过的版本都将是一个快照；<br>• 快照持续到没有人使用为止才被删除</p>
+</blockquote>
+<p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<hr>
+<h5 id="6-事务和事物隔离级别"><a href="#6-事务和事物隔离级别" class="headerlink" title="6.事务和事物隔离级别"></a>6.事务和事物隔离级别</h5><p>与Mysql中隔离级别原理一样,参考mysql隔离级别</p>
+<hr>
+<h5 id="7-majority实战"><a href="#7-majority实战" class="headerlink" title="7.majority实战"></a>7.majority实战</h5><p>安装 3 节点复制集(一主两从)</p>
+<p>为3个节点的配置文件(mongod.conf)增加配置p,配置好后启动并进入3个节点</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">replication:</span><br><span class="line">  ...</span><br><span class="line">  enableMajorityReadConcern: true</span><br></pre></td></tr></table></figure>
+
+<p>在主节点插入数据并查看,此时结果只有一条数据,使用三种方式查看都能查看到</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rs0:PRIMARY&gt; db.test.save(&#123;x:<span class="number">1</span>&#125;)</span><br><span class="line">rs0:PRIMARY&gt; db.test.find()</span><br><span class="line">rs0:PRIMARY&gt; db.test.find().readConcern(<span class="string">&quot;local&quot;</span>)</span><br><span class="line">rs0:PRIMARY&gt; db.test.find().readConcern(<span class="string">&quot;majority&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>进入两个从节点执行查看命令也可都可以查看到主节点复制过来的数据</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rs0:SECONDARY&gt; rs.slaveOk()</span><br><span class="line">rs0:SECONDARY&gt; db.test.find().readConcern(<span class="string">&quot;local&quot;</span>)</span><br><span class="line">&#123; <span class="string">&quot;_id&quot;</span> : ObjectId(<span class="string">&quot;63a021566db6f7f2036057d5&quot;</span>), <span class="string">&quot;x&quot;</span> : <span class="number">1</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>将复制集中的两个从节点使用 db.fsyncLock() 锁住写(模拟同步延迟,主节点的数据无法写入到从节点)</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#从节点1</span></span><br><span class="line">rs0:SECONDARY&gt; db.fsyncLock()</span><br><span class="line">从节点<span class="number">2</span></span><br><span class="line">rs0:SECONDARY&gt; db.fsyncLock()</span><br></pre></td></tr></table></figure>
+
+<p>此时进入主节点插入新的数据,会发现卡顿没反应,因为默认是写到大多数节点上才会反馈,但是此时从节点都被锁住所以会发生没反应现象</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rs0:PRIMARY&gt; db.test.save(&#123;x:<span class="number">2</span>&#125;)</span><br><span class="line">...卡顿</span><br></pre></td></tr></table></figure>
+
+<p>主节点 db.test.find() 方式查看,可以查看到所有·1写入的数据</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rs0:PRIMARY&gt; db.test.find()</span><br><span class="line">&#123; <span class="string">&quot;_id&quot;</span> : ObjectId(<span class="string">&quot;63a021566db6f7f2036057d5&quot;</span>), <span class="string">&quot;x&quot;</span> : <span class="number">1</span> &#125;</span><br><span class="line">&#123; <span class="string">&quot;_id&quot;</span> : ObjectId(<span class="string">&quot;63a021ac6db6f7f2036057d6&quot;</span>), <span class="string">&quot;x&quot;</span> : <span class="number">2</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>主节点使用 majority 放是读取数据,发现只有一条数据,因为使用的是majority,即大多数节点写入数据确认后才能返回,此时另外两个从节点无法写入主节点的数据,不满足数据写入到大部分节点上所以只能查看到最开始的数据</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rs0:PRIMARY&gt; db.test.find().readConcern(<span class="string">&quot;majority&quot;</span>)</span><br><span class="line">&#123; <span class="string">&quot;_id&quot;</span> : ObjectId(<span class="string">&quot;63a021566db6f7f2036057d5&quot;</span>), <span class="string">&quot;x&quot;</span> : <span class="number">1</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>解除来2个从节点上的锁,主节点再次使用majority的方式读取数据</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#两个从节点都执行  db.fsyncUnlock()</span></span><br><span class="line">rs0:SECONDARY&gt; db.fsyncUnlock()</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/20.%E4%B8%BB%E8%8A%82%E7%82%B9%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE.png" alt="20.主节点读取数据"></p>
+<p>从节点也可以读取到两条完整的数据</p>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/21.%E4%BB%8E%E8%8A%82%E7%82%B9%E8%AF%BB%E5%8F%96%E5%88%B0%E6%95%B0%E6%8D%AE.png" alt="21.从节点读取到数据"></p>
+<blockquote>
+<p><span style="color:red">结论：</span></p>
+<p>• 使用 local 参数,则可以直接查询到写入数据<br>• 使用 majority,只能查询到已经被多数节点确认过的数据<br>• update 与 remove 与上同理</p>
+</blockquote>
+<blockquote>
+<p><span style="color:red">MongoDB中的回滚：</span></p>
+<p>• 写操作到达大多数节点之前都是不安全的,一旦主节点崩溃,而从节还没复制到该次操作,刚才的写操作就丢失了<br>• 把一次写操作视为一个事务,从事务的角度可以认为事务被回滚了。所以从分布式系统的角度来看,事务的提交被提升到了分布式集群的多个节点级别的“提交”,而不再是单个节点上的“提交”。<br><strong>在可能发生回滚的前提下考虑脏读问题：</strong><br>• 如果在一次写操作到达大多数节点前读取了这个写操作,然后因为系统故障该操作回滚了,则发生了脏读问题;使用 {readConcern: “majority”} 可以有效避免脏读</p>
+</blockquote>
+<hr>
+<h5 id="8-readConcern中的snapshot"><a href="#8-readConcern中的snapshot" class="headerlink" title="8.readConcern中的snapshot"></a>8.readConcern中的snapshot</h5><p>{readConcern: “snapshot”} 只在多文档事务中生效</p>
+<blockquote>
+<p>将一个事务的 readConcern设置为 snapshot,将保证在事务中的读：</p>
+<p>• 不出现脏读；</p>
+<p>• 不出现不可重复读；</p>
+<p>• 不出现幻读</p>
+<p>因为所有的读都将使用同一个快照,直到事务提交为止该快照才被释放</p>
+</blockquote>
+<p><span style="color:red">事务的隔离性：</span></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#向数据集中插入数据</span></span><br><span class="line">rs0:PRIMARY&gt; db.tx.insertMany([&#123;<span class="type">x</span>:<span class="number">1</span>&#125;,&#123;<span class="type">x</span>:<span class="number">2</span>&#125;])</span><br><span class="line"><span class="comment">#定义事务</span></span><br><span class="line">&gt; var session = db.getMongo().startSession();</span><br><span class="line"><span class="comment">#开启事务</span></span><br><span class="line">&gt; session.startTransaction();</span><br><span class="line"><span class="comment">#获取事务中的数据集</span></span><br><span class="line">&gt; var coll = session.getDatabase(<span class="string">&#x27;test&#x27;</span>).getCollection(<span class="string">&quot;tx&quot;</span>);</span><br><span class="line"><span class="comment">#事务中的数据集追加数据</span></span><br><span class="line">&gt; coll.updateOne(&#123;x: <span class="number">1</span>&#125;, &#123;<span class="variable">$set:</span> &#123;y: <span class="number">1</span>&#125;&#125;);</span><br><span class="line"><span class="comment">#事务内可以查看追加的数据</span></span><br><span class="line">&gt; coll.findOne(&#123;x: <span class="number">1</span>&#125;);</span><br><span class="line">&#123; <span class="string">&quot;_id&quot;</span> : ObjectId(<span class="string">&quot;63a06bc0fd531c87f91f261b&quot;</span>), <span class="string">&quot;x&quot;</span> : <span class="number">1</span>, <span class="string">&quot;y&quot;</span> : <span class="number">1</span> &#125;</span><br><span class="line"><span class="literal">-------------------------------------------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">#事务未提交,事务外不能查看追加后的完整数据</span></span><br><span class="line">&gt; db.tx.findOne(&#123;x: <span class="number">1</span>&#125;);</span><br><span class="line">&#123; <span class="string">&quot;_id&quot;</span> : ObjectId(<span class="string">&quot;63a06bc0fd531c87f91f261b&quot;</span>), <span class="string">&quot;x&quot;</span> : <span class="number">1</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/22.%E4%BA%8B%E5%8A%A1.png" alt="22.事务"></p>
+<hr>
+<p><span style="color:red">可重复读Repeatable Read：</span></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">rs0:PRIMARY&gt; var session = db.getMongo().startSession();</span><br><span class="line"><span class="comment">#开启事务设置隔离级别为snapshot,并且设置数据写到大部分节点</span></span><br><span class="line">&gt; session.startTransaction(&#123;readConcern: &#123;level: <span class="string">&quot;snapshot&quot;</span>&#125;,writeConcern: &#123;w: <span class="string">&quot;majority&quot;</span>&#125;&#125;);</span><br><span class="line">&gt; var coll = session.getDatabase(<span class="string">&#x27;test&#x27;</span>).getCollection(<span class="string">&quot;tx&quot;</span>);</span><br><span class="line">&gt; coll.findOne(&#123;x: <span class="number">1</span>&#125;);</span><br><span class="line">&gt; db.tx.updateOne(&#123;x: <span class="number">1</span>&#125;, &#123;<span class="variable">$set:</span> &#123;y: <span class="number">1</span>&#125;&#125;);</span><br><span class="line">&gt; coll.findOne(&#123;x: <span class="number">1</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/23.%E4%BA%8B%E5%8A%A1.png" alt="23.事务"></p>
+<hr>
+<blockquote>
+<p><span style="color:red">⚠️注意事项</span></p>
+<ul>
+<li>事务默认必须在 60 秒(可调)内完成,否则将被取消</li>
+<li>涉及事务的分片不能使用仲裁节点</li>
+<li>事务会影响数据迁移效率,正在迁移的 chunk(块) 也可能造成事务提交失败(重试即可)</li>
+<li>多文档事务中的读操作必须使用主节点读；</li>
+<li>readConcern 只应该在事务级别设置,不能设置在每次读写操作上</li>
+</ul>
+</blockquote>
+<hr>
+<h5 id="9-MongoDB开发注意事项"><a href="#9-MongoDB开发注意事项" class="headerlink" title="9.MongoDB开发注意事项"></a>9.MongoDB开发注意事项</h5><p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<hr>
+<h4 id="11-MongoDB分片集群"><a href="#11-MongoDB分片集群" class="headerlink" title="11.MongoDB分片集群"></a>11.MongoDB分片集群</h4><h5 id="1-分片集群机制以及原理"><a href="#1-分片集群机制以及原理" class="headerlink" title="1.分片集群机制以及原理"></a>1.分片集群机制以及原理</h5><p><span style="color:red">mongodb常见部署架构</span></p>
+<blockquote>
+<ol>
+<li><p>单节点：常用于开发与测试(整体占比20%左右)</p>
+</li>
+<li><p>复制集：高可用(整体占比70%左右)</p>
+</li>
+<li><p>分片集群：横向扩展满足三高-高可用,高扩展,高并发(整体占比10%左右)</p>
+</li>
+</ol>
+<p>  <img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/24.%E5%88%86%E7%89%87%E9%9B%86%E7%BE%A4.png" alt="24.分片集群"></p>
+<p>  分片集群节点数量明显增加,通常情况下搭建一个分片集群至少需要8个及以上个节点,对配置要求比较高</p>
+</blockquote>
+<p><span style="color:red">为什么要使用分片集群</span></p>
+<blockquote>
+<p>以下场景中推荐使用分片集群：</p>
+<ul>
+<li>MongoDB数据容量日益增大(如有上几T或者几十上百T的数据),访问性能日渐降低</li>
+<li>系统上线异常火爆,需要支撑更多的并发用户</li>
+<li>MongoDB已有10TB 数据,发生故障,恢复时间漫长(将数据分布在多个节点上减少单个节点的数据量)</li>
+<li>系统的访问用户针对全球(需要做地理分布数据)</li>
+</ul>
+</blockquote>
+<p><span style="color:red">分片集群数据分布方式</span></p>
+<blockquote>
+<p><code>1</code> 基于范围</p>
+<p>按照数据的范围进行分片划分(如下图，min~-75，-75 ~ 25 ，25 ~175这些都是范围)</p>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/27.%E5%9F%BA%E4%BA%8E%E8%8C%83%E5%9B%B4%E7%9A%84%E5%88%86%E5%B8%83%E6%96%B9%E5%BC%8F.png" alt="27.基于范围的分布方式"></p>
+<p><span style="color:red">优点：</span>采用范围查询性能好,可以优化业务的读操作,如使用大于等于等范围查询可定位到某个范围区间查询效率快</p>
+<p><span style="color:blue">缺点：</span><span style="color:blue">数据分布不均匀(容易有热点问题),比如如果是以主键划分范围,而主键是自增ID的话,那么大量的写入操作的数据极容易落到一个分片,导致热点问题,如插入的数据是从主键0开始自增此时假设插入了130条数据,那么这些数据大概率全分布在了chunk3分片上,这样就和单节点没区别了,性能下降容易出故障</span></p>
+<p><code>2</code> 基于哈希</p>
+<p>按照数据的hash值来进行分片</p>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/26.%E5%9F%BA%E4%BA%8EHash%E7%9A%84%E5%88%86%E5%B8%83%E6%96%B9%E5%BC%8F.png" alt="26.基于Hash的分布方式"></p>
+<p><span style="color:red">优点：</span>数据分布均匀,针对写入操作是比较优化的,适用：日志、物联网等高并发场景</p>
+<p><span style="color:blue">缺点：范围查询效率低,查询的数据可能分布在多个不同的分片上</span></p>
+<p><code>3</code> 自定义Zone</p>
+<p>根据节点定义一个Zone,比如国际区号：1开头的读写美国的服务器,86开头的读写中国的服务器,方便完成国际化的全球项目的部署</p>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/28.%E9%9B%86%E7%BE%A4%E5%88%86%E5%B8%83%E6%96%B9%E5%BC%8F3.png" alt="28.集群分布方式3"></p>
+<p>三种分片集群数据分布方式有各自的使用场景没有绝对的好与坏,看应用场景选择合适的数据分布方式</p>
+</blockquote>
+<p><span style="color:red">完整的分片集群</span></p>
+<blockquote>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/25.%E5%88%86%E7%89%87%E9%9B%86%E7%BE%A42.png" alt="25.分片集群2"></p>
+<p><span style="color:blue">路由节点(mongos)：</span></p>
+<p>提供集群单一入口(可以有多个,理论上只需要使用一个,建议至少2个达到高可用,一个挂了可以启用另一个作为集群入口）</p>
+<p>功能：转发应用端请求,选择合适数据节点进行读写,合并多个数据节点的返回(数据可能从不同节点返回,需要整合反馈给应用端),请求分发和聚合返回的数据</p>
+<p><span style="color:blue">配置(目录)节点：</span></p>
+<p>搭建：就是普通的复制集架构,一般1主2从提供高可用</p>
+<p>提供集群元数据存储(分片节点信息),分片数据分布的映射(哪些数据放在哪个分片集群)</p>
+<p>配置节点中比较重要的就是Shared这张表,里面存储分片中数据的范围(mongos在启动的时候会把配置节点的数据加载到自己的内存当中,方便快的进行数据的比对,完成数据的分发处理）</p>
+<table>
+<thead>
+<tr>
+<th align="center">Lower</th>
+<th align="center">Upper</th>
+<th align="center">Shard</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">1000</td>
+<td align="center">Shard0</td>
+</tr>
+<tr>
+<td align="center">1001</td>
+<td align="center">2000</td>
+<td align="center">Shard1</td>
+</tr>
+</tbody></table>
+<p><span style="color:blue">数据节点(mongod)：</span></p>
+<ul>
+<li>以复制集为单位(主从结构,避免单点故障）</li>
+<li>分片之间数据不重复(每个分片都是主从结构,已经实现了分片内重复数据写入,不同分片就不需要在放重复的数据了)</li>
+<li>横向扩展(可以动态扩展分片数又当前的3分片到8分片到…1024个分片)</li>
+<li>最大1024分片</li>
+<li>所有分片在一起才可完整工作</li>
+</ul>
+</blockquote>
+<p><span style="color:red">分片集群特点</span></p>
+<blockquote>
+<ul>
+<li>应用全透明,无特殊处理</li>
+<li>数据自动均衡</li>
+<li>动态扩容,无须下线</li>
+<li>基于三种分片方式(上述的分片集群数据分布方式)</li>
+</ul>
+<p><strong>总结：</strong> <span style="color:red">分片集群可以有效解决性能瓶颈及系统扩容问题！分片额外消耗较多(如上图的路由节点和配置节点算下来就需要5个服务器,再加上分片的机器得10多台,很浪费资源),管理复杂,能不分片尽量不要分片</span></p>
+</blockquote>
+<hr>
+<h5 id="2-如何用好分片集群"><a href="#2-如何用好分片集群" class="headerlink" title="2.如何用好分片集群"></a>2.如何用好分片集群</h5><p><span style="color:red"></span></p>
+<p><span style="color:blue"></span></p>
+<p><span style="color:blue"></span></p>
+<p><span style="color:blue"></span></p>
+<p><span style="color:#007FFF"></span></p>
+<p><span style="color:#007FFF"></span></p>
+<p><span style="color:#007FFF"></span></p>
+<hr>
+<h5 id="3-分片片集群的搭建以及扩容实战"><a href="#3-分片片集群的搭建以及扩容实战" class="headerlink" title="3.分片片集群的搭建以及扩容实战"></a>3.分片片集群的搭建以及扩容实战</h5><p>环境要求：3台 Linux 虚拟机(推荐4核8G)</p>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/49.3%E5%8F%B0%E8%99%9A%E6%8B%9F%E6%9C%BA.png" alt="49.3台虚拟机"></p>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/50.%E7%A1%AC%E4%BB%B6%E9%85%8D%E7%BD%AE.png" alt="50.硬件配置"></p>
+<blockquote>
+<p><span style="color:#007FFF">整体过程</span>：</p>
+<ul>
+<li>配置域名解析</li>
+<li>准备分片目录</li>
+<li>创建第一个分片复制集并初始化</li>
+<li>创建 config 复制集并初始化</li>
+<li>初始化分片集群，加入第一个分片</li>
+<li>创建分片表</li>
+<li>加入第二个分片(模拟扩容)</li>
+</ul>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/29.%E5%88%86%E7%89%87%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA.png"></p>
+</blockquote>
+<p><span style="color:red">准备工作</span></p>
+<blockquote>
+<p><span style="color:#007FFF">配置域名解析：</span></p>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/49.3%E5%8F%B0%E8%99%9A%E6%8B%9F%E6%9C%BA.png" alt="49.3台虚拟机"></p>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/30.%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90.png" alt="30.域名解析"></p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">Member1</th>
+<th align="center">Member2</th>
+<th align="center">Member3</th>
+<th align="center">Member4</th>
+<th align="center">Member5</th>
+<th align="center">Member6</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Shard1</td>
+<td align="center">$\checkmark$</td>
+<td align="center"></td>
+<td align="center">$\checkmark$</td>
+<td align="center"></td>
+<td align="center">$\checkmark$</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Shard1</td>
+<td align="center"></td>
+<td align="center">$\checkmark$</td>
+<td align="center"></td>
+<td align="center">$\checkmark$</td>
+<td align="center"></td>
+<td align="center">$\checkmark$</td>
+</tr>
+<tr>
+<td align="center">Config</td>
+<td align="center">$\checkmark$</td>
+<td align="center"></td>
+<td align="center">$\checkmark$</td>
+<td align="center"></td>
+<td align="center">$\checkmark$</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Mongos</td>
+<td align="center"></td>
+<td align="center">$\checkmark$</td>
+<td align="center"></td>
+<td align="center">$\checkmark$</td>
+<td align="center"></td>
+<td align="center">$\checkmark$</td>
+</tr>
+</tbody></table>
+<p>在3台虚拟机上分别执行以下3条命令(注意替换实际IP地址,填写自己虚拟机ip,可使用 ip a命令查看虚拟机ip地址)</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;[<span class="type">root</span>@<span class="type">centosvm</span> ~]<span class="comment"># echo &quot;10.211.55.11 demo1 member1.bytezl.com member2.bytezl.com&quot; &gt;&gt; /etc/hosts</span></span><br><span class="line">&gt;[<span class="type">root</span>@<span class="type">centosvm</span> ~]<span class="comment"># echo &quot;10.211.55.15 demo2 member3.bytezl.com member4.bytezl.com&quot; &gt;&gt; /etc/hosts</span></span><br><span class="line">&gt;[<span class="type">root</span>@<span class="type">centosvm</span> ~]<span class="comment"># echo &quot;10.211.55.16 demo3 member5.bytezl.com member6.bytezl.com&quot; &gt;&gt; /etc/hosts</span></span><br></pre></td></tr></table></figure>
+
+<p>查看配置好的域名解析</p>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/31.%E6%9F%A5%E7%9C%8B%E9%85%8D%E7%BD%AE%E7%9A%84%E5%9F%9F%E5%90%8D.png" alt="31.查看配置的域名"></p>
+<p>测试相互是否能ping通(关闭3台虚拟机的防火墙)</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;[<span class="type">root</span>@<span class="type">centosvm</span> ~]<span class="comment"># ping 10.211.55.15 -c 2</span></span><br><span class="line">&gt;[<span class="type">root</span>@<span class="type">centosvm</span> ~]<span class="comment"># ping demo2 -c 2</span></span><br><span class="line">&gt;[<span class="type">root</span>@<span class="type">centosvm</span> ~]<span class="comment"># ping member3.bytezl.com -c 2</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/32.ping1.png" alt="32.ping1"></p>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/33.ping2.png" alt="33.ping2"></p>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/34.ping3.png" alt="34.ping3"></p>
+<p><span style="color:#007FFF">准备分片目录：</span></p>
+<p>在各服务器上创建数据目录,使用<span style="color:blue">/data</span>,按自己需要修改为其他目录</p>
+<p>在 <span style="color:blue">member1 / member3 / member5</span> 即在每个虚拟机上执行相同的命令,执行以下命令：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;[<span class="type">root</span>@<span class="type">centosvm</span> ~]<span class="comment"># mkdir -p /data/shard1/</span></span><br><span class="line">&gt;[<span class="type">root</span>@<span class="type">centosvm</span> ~]<span class="comment"># mkdir -p /data/config/</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/35.%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B91.png" alt="35.创建文件夹1"></p>
+<p>在 <span style="color:blue">member2 / member4 / member6</span> 即在每个虚拟机上执行相同的命令,执行以下命令：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;[<span class="type">root</span>@<span class="type">centosvm</span> ~]<span class="comment"># mkdir -p /data/shard2/</span></span><br><span class="line">&gt;[<span class="type">root</span>@<span class="type">centosvm</span> ~]<span class="comment"># mkdir -p /data/mongos/</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/36.%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B92.png" alt="36.创建文件夹2"></p>
+<p>去每台虚拟机的 <span style="color:blue">/data</span>目录下执行一下命令确保mongodb都是同一个版本：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;[<span class="type">root</span>@<span class="type">centosvm</span> <span class="type">data</span>]<span class="comment"># mongo</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/37.%E7%A1%AE%E4%BF%9Dmongodb%E5%90%8C%E7%89%88%E6%9C%AC.png" alt="37.确保mongodb同版本"></p>
+</blockquote>
+<p><span style="color:red">搭建分片</span></p>
+<blockquote>
+<p><span style="color:#007FFF">搭建shard1：</span></p>
+<p>在 <span style="color:blue">member1 / member3 / member5</span> 即在每个虚拟机上执行相同的命令,执行以下命令：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;[<span class="type">root</span>@<span class="type">centosvm</span> <span class="type">data</span>]<span class="comment"># mongod --bind_ip 0.0.0.0 --replSet shard1 --dbpath /data/shard1 --logpath /data/shard1/mongod.log --port 27010 --fork --shardsvr --wiredTigerCacheSizeGB 1</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Mongod</td>
+<td align="center">启动mongodb服务器</td>
+</tr>
+<tr>
+<td align="center">bind_ip</td>
+<td align="center">生产环境中强烈建议不要绑定外网IP,此处为了方便演示绑定了所有IP地址,类似的道理,生产环境中应开启认证<span style="color:blue">—–auth</span>,此处为演示方便并未使用</td>
+</tr>
+<tr>
+<td align="center">replSet</td>
+<td align="center">表示是一个复制集,后面紧跟复制集的名字</td>
+</tr>
+<tr>
+<td align="center">dbpath</td>
+<td align="center">复制集存放数据的目录</td>
+</tr>
+<tr>
+<td align="center">logpath</td>
+<td align="center">复制集存放日志的目录</td>
+</tr>
+<tr>
+<td align="center">port</td>
+<td align="center">服务开放的端口号</td>
+</tr>
+<tr>
+<td align="center">fork</td>
+<td align="center">后台运行</td>
+</tr>
+<tr>
+<td align="center">shardsvr</td>
+<td align="center">表示这不是一个普通的复制集,而是分片集的一部分</td>
+</tr>
+<tr>
+<td align="center">wiredTigerCacheSizeGB</td>
+<td align="center">该参数表示MongoDB能够使用的缓存大小,默认值为==(RAM - 1GB) / 2==,不建议配置超过默认值,有OOM(内存溢出)的风险,因为当前测试会在一台服务器上运行多个实例,因此配置了较小的值</td>
+</tr>
+</tbody></table>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/38.%E6%90%AD%E5%BB%BAshard1.png" alt="38.搭建shard1"></p>
+<p>该操作就是在3台虚拟机上启动了3个mongodb服务,还不具有主从关系</p>
+<p>用这三个实例搭建shard1复制集：</p>
+<p>任意连接到一个实例作为<span style="color:#007FFF">shard1</span>的主节点(demoe1虚拟机下执行),例如连接到<span style="color:#007FFF">member1.bytezl.com</span>：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;[<span class="type">root</span>@<span class="type">centosvm</span> <span class="type">data</span>]<span class="comment"># mongo --host member1.bytezl.com:27010</span></span><br></pre></td></tr></table></figure>
+
+<p>初始化<span style="color:#007FFF">shard1</span>复制集,使用如下配置初始化复制集：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;rs.initiate(&#123;</span><br><span class="line">  _id: <span class="string">&quot;shard1&quot;</span>,<span class="comment">#复制集名字</span></span><br><span class="line">  <span class="string">&quot;members&quot;</span> : [<span class="comment">#复制集成员配置</span></span><br><span class="line">      &#123;</span><br><span class="line">          <span class="string">&quot;_id&quot;</span>: <span class="number">0</span>,<span class="comment">#主</span></span><br><span class="line">          <span class="string">&quot;host&quot;</span> : <span class="string">&quot;member1.bytezl.com:27010&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="string">&quot;_id&quot;</span>: <span class="number">1</span>,<span class="comment">#从</span></span><br><span class="line">          <span class="string">&quot;host&quot;</span> : <span class="string">&quot;member3.bytezl.com:27010&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="string">&quot;_id&quot;</span>: <span class="number">2</span>,<span class="comment">#从</span></span><br><span class="line">          <span class="string">&quot;host&quot;</span> : <span class="string">&quot;member5.bytezl.com:27010&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">  ]</span><br><span class="line">&gt;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/39.%E6%90%AD%E5%BB%BAshard1.png" alt="39.搭建shard1"></p>
+<p>查看复制集是否搭建成功：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;shard1:PRIMARY&gt; rs.status()</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/40.%E5%A4%8D%E5%88%B6%E9%9B%86primary.png" alt="40.复制集primary"></p>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/41.%E5%A4%8D%E5%88%B6%E9%9B%86s1.png" alt="41.复制集s1"></p>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/42.%E5%A4%8D%E5%88%B6%E9%9B%86s2.png" alt="42.复制集s2"></p>
+<hr>
+<p><span style="color:#007FFF">搭建config：</span></p>
+<p>与<span style="color:#007FFF">shard1</span>搭建方式差不多,可以搭建<span style="color:#007FFF">config</span>服务器,在 <span style="color:blue">member1 / member3 / member5</span> 执行以下命令：</p>
+<p>① 运行<span style="color:#007FFF">config</span>实例(3台虚拟机都执行)</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;[<span class="type">root</span>@<span class="type">centosvm</span> <span class="type">data</span>]<span class="comment"># mongod --bind_ip 0.0.0.0 --replSet config --dbpath /data/config --logpath /data/config/mongod.log --port 27019 --fork --configsvr --wiredTigerCacheSizeGB 1</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/Users/zl/Desktop/mongodb/mongodb-png/43.config%E5%AE%9E%E4%BE%8B%E8%BF%90%E8%A1%8C%E6%88%90%E5%8A%9F.png" alt="43.config实例运行成功"></p>
+<p>② 连接到<span style="color:#007FFF">member1</span>(demo1上执行)</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;[<span class="type">root</span>@<span class="type">centosvm</span> <span class="type">data</span>]<span class="comment"># mongo --host member1.bytezl.com:27019</span></span><br></pre></td></tr></table></figure>
+
+<p>③ 初始化<span style="color:#007FFF">config</span>复制集</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;rs.initiate(&#123;</span><br><span class="line">  _id: <span class="string">&quot;config&quot;</span>,</span><br><span class="line">  <span class="string">&quot;members&quot;</span> : [</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="string">&quot;_id&quot;</span>: <span class="number">0</span>,</span><br><span class="line">          <span class="string">&quot;host&quot;</span> : <span class="string">&quot;member1.bytezl.com:27019&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="string">&quot;_id&quot;</span>: <span class="number">1</span>,</span><br><span class="line">          <span class="string">&quot;host&quot;</span> : <span class="string">&quot;member3.bytezl.com:27019&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="string">&quot;_id&quot;</span>: <span class="number">2</span>,</span><br><span class="line">          <span class="string">&quot;host&quot;</span> : <span class="string">&quot;member5.bytezl.com:27019&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">  ]</span><br><span class="line">&gt;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>④ 查看复制集状态</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;config:PRIMARY&gt; rs.status()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/Users/zl/Desktop/mongodb/mongodb-png/44.config%E5%A4%8D%E5%88%B6%E9%9B%86primary.png" alt="44.config复制集primary"></p>
+<p><img src="/Users/zl/Desktop/mongodb/mongodb-png/45.config%E5%A4%8D%E5%88%B6%E9%9B%86s1.png" alt="45.config复制集s1"></p>
+<p><img src="/Users/zl/Desktop/mongodb/mongodb-png/46.config%E5%A4%8D%E5%88%B6%E9%9B%86s2.png" alt="46.config复制集s2"></p>
+<hr>
+<p><span style="color:#007FFF">搭建mongos：</span></p>
+<p>mongos的搭建比较简单 <span style="color:#007FFF">member2/ member4 /member6</span> 上搭建3个mongos</p>
+<p>==configdb==表示config使用的集群地址</p>
+<p>① 在3台虚拟机上运行<span style="color:#007FFF">mongos</span>进程</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;[<span class="type">root</span>@<span class="type">centosvm</span> <span class="type">data</span>]<span class="comment"># mongos --bind_ip 0.0.0.0 --logpath /data/mongos/mongos.log --port 27017 --configdb config/member1.bytezl.com:27019,member3.bytezl.com:27019,member5.bytezl.com:27019 --fork</span></span><br></pre></td></tr></table></figure>
+
+<p>② 连接到任意一个mongos,此处使用<span style="color:#007FFF">member1</span>：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;[<span class="type">root</span>@<span class="type">centosvm</span> <span class="type">data</span>]<span class="comment"># mongo --host member1.bytezl.com:27017</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/47.%E8%BF%9E%E6%8E%A5mongos.png" alt="47.连接mongos"></p>
+<p>③ 将<span style="color:#007FFF">shard1</span>加入到集群中：</p>
+<p>上述过程只是搭建了关于<span style="color:#007FFF">shard1</span>的复制集和<span style="color:#007FFF">config</span>复制集和<span style="color:#007FFF">mongos</span>复制集.并没有将<span style="color:#007FFF">shard1</span>设置为分片加入到集群中    </p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;mongos&gt; sh.addShard(<span class="string">&quot;shard1/member1.bytezl.com:27010,member3.bytezl.com:27010,member5.bytezl.com:27010&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/48.shard1%E5%8A%A0%E5%85%A5%E5%88%B0%E9%9B%86%E7%BE%A4.png" alt="48.shard1加入到集群"></p>
+<hr>
+<p><span style="color:#007FFF">测试分片集：</span></p>
+<p>上述示例中搭建了一个只有1个分片的分片集,在继续之前先测试一下这个分片集</p>
+<p>① 连接到分片集</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="comment">#上述已经连接好了,不用执行了,若为连接则需要执行该命令</span></span><br><span class="line">&gt;mongo <span class="literal">--host</span> member1.bytezl.com:<span class="number">27017</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="comment">#查看分片集群状态</span></span><br><span class="line">&gt;mongos&gt; sh.status();</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/51.%E5%88%86%E7%89%87%E9%9B%86%E7%BE%A4%E7%8A%B6%E6%80%81.png" alt="51.分片集群状态"></p>
+<p>② 创建一个分片表</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="comment">#设置foo</span></span><br><span class="line">&gt;mongos&gt; sh.enableSharding(<span class="string">&quot;foo&quot;</span>);</span><br><span class="line">&gt;<span class="comment">#根据主键idhash分发数据到复制集</span></span><br><span class="line">&gt;mongos&gt; sh.shardCollection(<span class="string">&quot;foo.bar&quot;</span>, &#123;_id: <span class="string">&#x27;hashed&#x27;</span>&#125;);</span><br><span class="line">&gt;mongos&gt; sh.status();</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/52.%E5%88%86%E7%89%87%E9%9B%86%E7%BE%A4%E7%8A%B6%E6%80%81.png" alt="52.分片集群状态"></p>
+<p>③ 任意写入若干数据</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;mongos&gt; use foo</span><br><span class="line">&gt;mongos&gt; <span class="keyword">for</span> (var i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">&gt;...     db.bar.insert(&#123;i: i&#125;);</span><br><span class="line">&gt;... &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/53.%E5%86%99%E5%85%A5%E6%95%B0%E6%8D%AE.png" alt="53.写入数据"></p>
+<hr>
+<p><span style="color:#007FFF">想分片集群加入新的分片(模拟动态扩容)：</span></p>
+<p>搭建<span style="color:#007FFF">shard2</span>并将其加入分片集中,观察发生的效果,使用类似<span style="color:#007FFF">shard1</span>的方式搭建<span style="color:#007FFF">shard2</span>,在 <span style="color:#007FFF">member2/ member4 /member6</span> 上执行以下命令：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;[<span class="type">root</span>@<span class="type">centosvm</span> <span class="type">data</span>]<span class="comment"># mongod --bind_ip 0.0.0.0 --replSet shard2 --dbpath /data/shard2 --logpath /data/shard2/mongod.log --port 27011 --fork --shardsvr --wiredTigerCacheSizeGB 1</span></span><br></pre></td></tr></table></figure>
+
+<p>用这三个实例搭建<span style="color:#007FFF">shard2</span>复制集</p>
+<p>① 任意连接到一个实例,例如连接到<span style="color:#007FFF">member2.bytezl.com</span>(demo1虚拟机)：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;[<span class="type">root</span>@<span class="type">centosvm</span> <span class="type">data</span>]<span class="comment"># mongo --host member2.bytezl.com:27011</span></span><br></pre></td></tr></table></figure>
+
+<p>② 初始化<span style="color:#007FFF">shard2</span>复制集,使用如下配置初始化复制集：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;rs.initiate(&#123;</span><br><span class="line">  _id: <span class="string">&quot;shard2&quot;</span>,</span><br><span class="line">  <span class="string">&quot;members&quot;</span> : [</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="string">&quot;_id&quot;</span>: <span class="number">0</span>,</span><br><span class="line">          <span class="string">&quot;host&quot;</span> : <span class="string">&quot;member2.bytezl.com:27011&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="string">&quot;_id&quot;</span>: <span class="number">1</span>,</span><br><span class="line">          <span class="string">&quot;host&quot;</span> : <span class="string">&quot;member4.bytezl.com:27011&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="string">&quot;_id&quot;</span>: <span class="number">2</span>,</span><br><span class="line">          <span class="string">&quot;host&quot;</span> : <span class="string">&quot;member6.bytezl.com:27011&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">  ]</span><br><span class="line">&gt;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>③ 连接到任意一个mongos,此处使用<span style="color:#007FFF">member1</span></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;[<span class="type">root</span>@<span class="type">centosvm</span> <span class="type">data</span>]<span class="comment"># mongo --host member1.bytezl.com:27017</span></span><br></pre></td></tr></table></figure>
+
+<p>④ 将<span style="color:#007FFF">shard2</span>加入到集群中</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;mongos&gt; sh.addShard(<span class="string">&quot;shard2/member2.bytezl.com:27011,member4.bytezl.com:27011,member6.bytezl.com:27011&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>⑤ 观察分片集群</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;mongos&gt; sh.status();</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/54.%E5%88%86%E7%89%87%E5%8A%A8%E6%80%81%E6%89%A9%E5%AE%B9.png" alt="54.分片动态扩容"></p>
+<p>可以发现原本<span style="color:#007FFF">shard1</span>上的两个chunk被均衡到了<span style="color:#007FFF">shard2</span>上,这就是MongoDB的自动均衡机制</p>
+<p>反复执行<span style="color:#007FFF">sh.status()</span>命令会出现下面的效果：</p>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/55.%E6%95%B0%E6%8D%AE%E5%8F%98%E5%8C%96.png" alt="55.数据变化"></p>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/56.%E6%95%B0%E6%8D%AE%E5%8F%98%E5%8C%96.png" alt="56.数据变化"></p>
+<p><img src="http://typora-imglist.oss-cn-beijing.aliyuncs.com/mongodb/57.%E6%95%B0%E6%8D%AE%E5%8F%98%E5%8C%96.png" alt="57.数据变化"></p>
+<p>通过这3图可知道后台分片集群在慢慢的做数据的负载均衡,若是生产服务器更高的配置很快就可以实现数据的负载均衡</p>
+</blockquote>
+<hr>
+<h4 id="12-MongoDB进阶"><a href="#12-MongoDB进阶" class="headerlink" title="12.MongoDB进阶"></a>12.MongoDB进阶</h4><h5 id="1-MongoDB应用场景以及选型"><a href="#1-MongoDB应用场景以及选型" class="headerlink" title="1.MongoDB应用场景以及选型"></a>1.MongoDB应用场景以及选型</h5><p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<p><span style="color:blue"></span></p>
+<p><span style="color:blue"></span></p>
+<p><span style="color:blue"></span></p>
+<p><span style="color:#007FFF"></span></p>
+<p><span style="color:#007FFF"></span></p>
+<p><span style="color:#007FFF"></span></p>
+<hr>
+<h5 id="2-MongoDB备份"><a href="#2-MongoDB备份" class="headerlink" title="2.MongoDB备份"></a>2.MongoDB备份</h5><p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<p><span style="color:blue"></span></p>
+<p><span style="color:blue"></span></p>
+<p><span style="color:blue"></span></p>
+<p><span style="color:#007FFF"></span></p>
+<p><span style="color:#007FFF"></span></p>
+<p><span style="color:#007FFF"></span></p>
+<hr>
+<h5 id="3-经典案例"><a href="#3-经典案例" class="headerlink" title="3.经典案例"></a>3.经典案例</h5><p><span style="color:red">红色</span></p>
+<p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<p><span style="color:red"></span></p>
+<p><span style="color:blue">蓝色</span></p>
+<p><span style="color:blue"></span></p>
+<p><span style="color:blue"></span></p>
+<p><span style="color:#007FFF">石板蓝</span></p>
+<p><span style="color:#007FFF"></span></p>
+<p><span style="color:#007FFF"></span></p>
+<p><span style="color:#007FFF"></span></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        			<a href="/categories/数据库//" class="article-tag-list-link color4">数据库</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/算法/golang版算法//" class="article-tag-list-link color5">golang版算法</a>
+        			<a href="/categories/数据库/非关系型数据库//" class="article-tag-list-link color3">非关系型数据库</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据库/非关系型数据库/mongodb//" class="article-tag-list-link color3">mongodb</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://zlcoding.top/2023/01/07/mongodb%E5%AE%9E%E6%88%98/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2023/01/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">我的第一篇文章</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AFNosql"><span class="toc-number">1.</span> <span class="toc-text">1.什么是Nosql</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-MongoDB%E6%A6%82%E5%BF%B5%E5%85%A5%E9%97%A8"><span class="toc-number">2.</span> <span class="toc-text">2.MongoDB概念入门</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-MongoDB%E5%AE%89%E8%A3%85%E4%B8%8E%E5%90%AF%E5%8A%A8"><span class="toc-number">3.</span> <span class="toc-text">3.MongoDB安装与启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%B9%8B%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="toc-number">4.</span> <span class="toc-text">4.常用命令之增删改查</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%8E%9F%E7%94%9F%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%A4%8D%E6%9D%82%E6%93%8D%E4%BD%9C"><span class="toc-number">5.</span> <span class="toc-text">5.原生客户端复杂操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E7%B4%A2%E5%BC%95%E6%A6%82%E5%BF%B5B%E6%A0%91"><span class="toc-number">6.</span> <span class="toc-text">6.索引概念B树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%9E%E6%88%98"><span class="toc-number">7.</span> <span class="toc-text">8.客户端实战</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%9E%E6%88%98%E4%B9%8Bpojo"><span class="toc-number">8.</span> <span class="toc-text">9.客户端实战之pojo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-MongoDB%E9%AB%98%E7%BA%A7"><span class="toc-number">9.</span> <span class="toc-text">10.MongoDB高级</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%A4%8D%E5%88%B6%E9%9B%86%E5%8F%8A%E5%8E%9F%E7%90%86"><span class="toc-number">9.1.</span> <span class="toc-text">1.复制集及原理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%A4%8D%E5%88%B6%E9%9B%86%E6%90%AD%E5%BB%BA%E5%AE%9E%E6%88%98"><span class="toc-number">9.2.</span> <span class="toc-text">2.复制集搭建实战</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%A4%8D%E5%88%B6%E9%9B%86%E7%9A%84%E5%86%99%E7%AD%96%E7%95%A5"><span class="toc-number">9.3.</span> <span class="toc-text">3.复制集的写策略</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E5%A4%8D%E5%88%B6%E9%9B%86%E7%9A%84%E5%86%99%E7%AD%96%E7%95%A5%E5%AE%9E%E6%88%98"><span class="toc-number">9.4.</span> <span class="toc-text">4.复制集的写策略实战</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E5%A4%8D%E5%88%B6%E9%9B%86%E7%9A%84%E8%AF%BB%E7%AD%96%E7%95%A5"><span class="toc-number">9.5.</span> <span class="toc-text">5.复制集的读策略</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-%E4%BA%8B%E5%8A%A1%E5%92%8C%E4%BA%8B%E7%89%A9%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="toc-number">9.6.</span> <span class="toc-text">6.事务和事物隔离级别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-majority%E5%AE%9E%E6%88%98"><span class="toc-number">9.7.</span> <span class="toc-text">7.majority实战</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-readConcern%E4%B8%AD%E7%9A%84snapshot"><span class="toc-number">9.8.</span> <span class="toc-text">8.readConcern中的snapshot</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-MongoDB%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">9.9.</span> <span class="toc-text">9.MongoDB开发注意事项</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-MongoDB%E5%88%86%E7%89%87%E9%9B%86%E7%BE%A4"><span class="toc-number">10.</span> <span class="toc-text">11.MongoDB分片集群</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%88%86%E7%89%87%E9%9B%86%E7%BE%A4%E6%9C%BA%E5%88%B6%E4%BB%A5%E5%8F%8A%E5%8E%9F%E7%90%86"><span class="toc-number">10.1.</span> <span class="toc-text">1.分片集群机制以及原理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%A6%82%E4%BD%95%E7%94%A8%E5%A5%BD%E5%88%86%E7%89%87%E9%9B%86%E7%BE%A4"><span class="toc-number">10.2.</span> <span class="toc-text">2.如何用好分片集群</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%88%86%E7%89%87%E7%89%87%E9%9B%86%E7%BE%A4%E7%9A%84%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E6%89%A9%E5%AE%B9%E5%AE%9E%E6%88%98"><span class="toc-number">10.3.</span> <span class="toc-text">3.分片片集群的搭建以及扩容实战</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-MongoDB%E8%BF%9B%E9%98%B6"><span class="toc-number">11.</span> <span class="toc-text">12.MongoDB进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-MongoDB%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E4%BB%A5%E5%8F%8A%E9%80%89%E5%9E%8B"><span class="toc-number">11.1.</span> <span class="toc-text">1.MongoDB应用场景以及选型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-MongoDB%E5%A4%87%E4%BB%BD"><span class="toc-number">11.2.</span> <span class="toc-text">2.MongoDB备份</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E7%BB%8F%E5%85%B8%E6%A1%88%E4%BE%8B"><span class="toc-number">11.3.</span> <span class="toc-text">3.经典案例</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -242,10 +1176,10 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
